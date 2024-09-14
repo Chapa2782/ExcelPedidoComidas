@@ -1,7 +1,7 @@
-Attribute VB_Name = "Módulo1"
+Attribute VB_Name = "MÃ³dulo1"
 Option Explicit
 
-' Función para enviar datos a Firebase al sistema de comidas
+' FunciÃ³n para enviar datos a Firebase al sistema de comidas
 '****03/09/2024   SealtoSoft******
 Sub EnviarDatosAFirebase()
 
@@ -234,7 +234,7 @@ Sub BlanquearClave()
     respuesta = http.responseText
     
 
-    ' Mostrar la respuesta en la ventana de depuración (puedes ajustarlo según tus necesidades)
+    ' Mostrar la respuesta en la ventana de depuraciÃ³n (puedes ajustarlo segÃºn tus necesidades)
     If respuesta = "null" Then
         MsgBox "El usuario no esta cargado en la base de datos"
         Exit Sub
@@ -389,7 +389,7 @@ Sub LeerDatosDeFirebase()
         rango = "A1:H" + Trim(Str(cont))
         
         
-        'se da estilo a la celda para poder aplicar contadores y filtros
+         'se da estilo a la celda para poder aplicar contadores y filtros
         Range(rango).Select
     Application.CutCopyMode = False
     ActiveSheet.ListObjects.Add(xlSrcRange, Range("$A$1:$H$" + Trim(Str(cont - 1))), , xlYes).Name = _
@@ -397,25 +397,44 @@ Sub LeerDatosDeFirebase()
    
     ActiveSheet.ListObjects("Tabla7").TableStyle = "TableStyleMedium18"
     ActiveSheet.ListObjects("Tabla7").ShowTotals = True
-    Range("Tabla7[[#Totals],[6-Domingo 15-9-2024]]").Select
-    ActiveSheet.ListObjects("Tabla7").ListColumns("6-Domingo 15-9-2024"). _
-        TotalsCalculation = xlTotalsCalculationCount
-    Range("Tabla7[[#Totals],[5-Sábado 14-9-2024]]").Select
-    ActiveSheet.ListObjects("Tabla7").ListColumns("5-Sábado 14-9-2024"). _
-        TotalsCalculation = xlTotalsCalculationCount
-    Range("Tabla7[[#Totals],[4-Viernes 13-9-2024]]").Select
-    ActiveSheet.ListObjects("Tabla7").ListColumns("4-Viernes 13-9-2024"). _
-        TotalsCalculation = xlTotalsCalculationCount
-    Range("Tabla7[[#Totals],[3-Jueves 12-9-2024]]").Select
-    ActiveSheet.ListObjects("Tabla7").ListColumns("3-Jueves 12-9-2024"). _
-        TotalsCalculation = xlTotalsCalculationCount
-    Range("Tabla7[[#Totals],[2-Miércoles 11-9-2024]]").Select
-    ActiveSheet.ListObjects("Tabla7").ListColumns("2-Miércoles 11-9-2024"). _
-        TotalsCalculation = xlTotalsCalculationCount
-    Range("Tabla7[[#Totals],[1-Martes 10-9-2024]]").Select
-    ActiveSheet.ListObjects("Tabla7").ListColumns("1-Martes 10-9-2024"). _
-        TotalsCalculation = xlTotalsCalculationCount
-        
+    
+    If CB1 <> "" Then
+        Range("Tabla7[[#Totals],[" + CB1 + "]]").Select
+        ActiveSheet.ListObjects("Tabla7").ListColumns(CB1). _
+            TotalsCalculation = xlTotalsCalculationCount
+    End If
+    If CC1 <> "" Then
+        Range("Tabla7[[#Totals],[" + CC1 + "]]").Select
+        ActiveSheet.ListObjects("Tabla7").ListColumns(CC1). _
+            TotalsCalculation = xlTotalsCalculationCount
+    End If
+    
+    If CD1 <> "" Then
+        Range("Tabla7[[#Totals],[" + CD1 + "]]").Select
+        ActiveSheet.ListObjects("Tabla7").ListColumns(CD1). _
+            TotalsCalculation = xlTotalsCalculationCount
+    End If
+    If CE1 <> "" Then
+        Range("Tabla7[[#Totals],[" + CE1 + "]]").Select
+        ActiveSheet.ListObjects("Tabla7").ListColumns(CE1). _
+            TotalsCalculation = xlTotalsCalculationCount
+    End If
+    If CF1 <> "" Then
+        Range("Tabla7[[#Totals],[" + CF1 + "]]").Select
+        ActiveSheet.ListObjects("Tabla7").ListColumns(CF1). _
+            TotalsCalculation = xlTotalsCalculationCount
+    End If
+    If CG1 <> "" Then
+        Range("Tabla7[[#Totals],[" + CG1 + "]]").Select
+        ActiveSheet.ListObjects("Tabla7").ListColumns(CG1). _
+            TotalsCalculation = xlTotalsCalculationCount
+    End If
+    If CH1 <> "" Then
+        Range("Tabla7[[#Totals],[" + CH1 + "]]").Select
+        ActiveSheet.ListObjects("Tabla7").ListColumns(CH1). _
+            TotalsCalculation = xlTotalsCalculationCount
+    End If
+  
         
     Set http = Nothing
 End Sub
